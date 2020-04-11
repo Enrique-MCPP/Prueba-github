@@ -25,7 +25,7 @@ public class UtilesAdministrativos {
 				age = keyboard.nextInt();
 			}
 			catch(Exception e) {
-				System.out.println("No has escrito una edad.\Error"+e.getMessage());
+				System.out.println("No has escrito una edad.\nError: "+e.getMessage());
 			}
 			keyboard.nextLine();
 			System.out.println("Escribe el idioma de la persona: ");//¿Como escribir más de un idioma?
