@@ -62,7 +62,13 @@ public class ListaPersonal {
 					}else {
 						System.out.println("Escribe los idiomas de la persona que quieres buscar: ");
 						languages = keyboard.nextLine();
-						administrativeStaff.search(languages,administrative);	
+						if(languages.length() >= 4 ) {
+							administrativeStaff.search(languages,administrative);	
+						}else {
+							System.out.println("Escribe un idioma de mínimo 4 letras.");
+							break;
+						}
+						
 					}
 					break;
 				}
@@ -78,7 +84,10 @@ public class ListaPersonal {
 				case 7:{
 					System.out.println("¡Hasta pronto!");
 					return;
-				}	
+				}
+				default:{
+					System.out.println("Elige una opción de la 1 a la 7");
+				}
 			}
 			
 		}

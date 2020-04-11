@@ -16,7 +16,12 @@ public class Menu {
 			System.out.println("6_ Añadir Personal Mécanico.");
 			System.out.println("7_ Salir");
 			System.out.println("Ingrese una opción: "); 
-			opc = keyboard.nextInt();
+			try {
+				opc = keyboard.nextInt();
+			}
+			catch(Exception e) {
+				System.out.println("Escribe un número etero.\nError:"+e.getMessage());
+			}
 			keyboard.nextLine();
 		return opc;
 	}

@@ -1,5 +1,6 @@
 package util;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -20,7 +21,12 @@ public class UtilesAdministrativos {
 			System.out.println("Escribe el puesto de la persona: ");
 			post = keyboard.nextLine();
 			System.out.println("Escribe la edad de la persona: ");
-			age = keyboard.nextInt();
+			try {
+				age = keyboard.nextInt();
+			}
+			catch(Exception e) {
+				System.out.println("No has escrito una edad.\Error"+e.getMessage());
+			}
 			keyboard.nextLine();
 			System.out.println("Escribe el idioma de la persona: ");//¿Como escribir más de un idioma?
 			languages = keyboard.nextLine();
@@ -39,9 +45,13 @@ public class UtilesAdministrativos {
 	public void search (String languages, ArrayList<Administrativo> administrative) {
 		boolean match = false;//Por si hay más de un tío con el mismo idioma (algo lógico)
 		Iterator<Administrativo> it = administrative.iterator();
+		boolean resultado;
 		while(it.hasNext()) {
 			Administrativo administrativeStaff = it.next();
-			if(languages.equalsIgnoreCase(administrativeStaff.getLanguages())) {
+			String SearchlanguagesUpperCaseSinTildes = Normalizer.normalize(languages.toUpperCase(), Normalizer.Form.NFD); //Paso el lenguage a buscar a mayúsculas y quito acentos
+			String FindlanguagesUpperCaseSinTildes = Normalizer.normalize(administrativeStaff.getLanguages().toUpperCase(), Normalizer.Form.NFD); //Paso el lenguage a encontrar a mayúsculas y quito acentos
+			resultado = FindlanguagesUpperCaseSinTildes.contains(SearchlanguagesUpperCaseSinTildes);
+			if(resultado) {
 				System.out.println("La persona que buscas está en la lista");
 				System.out.println("Nombre: "+administrativeStaff.getNombre());
 				System.out.println("Puesto: "+administrativeStaff.getPuesto());
