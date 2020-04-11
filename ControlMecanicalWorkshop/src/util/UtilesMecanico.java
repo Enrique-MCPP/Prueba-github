@@ -18,7 +18,12 @@ public class UtilesMecanico {
 			System.out.println("Escribe el puesto de la persona: ");
 			post = keyboard.nextLine();
 			System.out.println("Escribe la edad de la persona: ");
-			age = keyboard.nextInt();
+			try {
+				age = keyboard.nextInt();
+			}
+			catch(Exception e) {
+				System.out.println("No has escrito una edad.\nError: "+e.getMessage());
+			}
 			keyboard.nextLine();
 			System.out.println("Escribe la especialidad de la persona: ");
 			field = keyboard.nextLine();

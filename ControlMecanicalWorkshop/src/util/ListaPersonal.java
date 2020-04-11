@@ -87,6 +87,7 @@ public class ListaPersonal {
 				}
 				default:{
 					System.out.println("Elige una opción de la 1 a la 7");
+					break;
 				}
 			}
 			
