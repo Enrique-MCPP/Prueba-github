@@ -65,7 +65,7 @@ public class ListaPersonal {
 						if(languages.length() >= 4 ) {
 							administrativeStaff.search(languages,administrative);	
 						}else {
-							System.out.println("Escribe un idioma de mínimo 4 letras.");
+							System.out.println("Tiene que haber una coincidencia de mínimo 4 letras.");
 							break;
 						}
 						
